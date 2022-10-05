@@ -3,14 +3,14 @@ package org.example;
 import java.util.List;
 import java.util.concurrent.Semaphore;
 
-public class ReceivePackageSemaphoreTask implements Runnable{
+public class ReceivePackageTask implements Runnable{
 
     private Semaphore receivePackageSemaphore;
     private Semaphore sendPackageSemaphore;
 
     private List<Integer> packageNumList;
 
-    public ReceivePackageSemaphoreTask(Semaphore receivePackageSemaphore, Semaphore sendPackageSemaphore, List<Integer> packageNumList) {
+    public ReceivePackageTask(Semaphore receivePackageSemaphore, Semaphore sendPackageSemaphore, List<Integer> packageNumList) {
         this.receivePackageSemaphore = receivePackageSemaphore;
         this.sendPackageSemaphore = sendPackageSemaphore;
         this.packageNumList = packageNumList;

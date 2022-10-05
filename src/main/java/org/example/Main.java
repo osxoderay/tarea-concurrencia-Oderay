@@ -16,11 +16,13 @@ public class Main {
 
             receivePackageSemaphore.acquire(3);
 
-            Thread sendPackageThread = new Thread(new SendPackageSemaphoreTask(sendPackageSemaphore, receivePackageSemaphore,packageLists)); //
-            Thread receivePackageThread = new Thread(new ReceivePackageSemaphoreTask(receivePackageSemaphore,sendPackageSemaphore,packageLists));
+            Thread sendPackageThread = new Thread(new SendPackageTask(sendPackageSemaphore, receivePackageSemaphore,packageLists)); //
+            Thread receivePackageThread = new Thread(new ReceivePackageTask(receivePackageSemaphore,sendPackageSemaphore,packageLists));
 
             sendPackageThread.start();
             receivePackageThread.start();
+
+             sendPackageThread.sleep(10);
 
 
 
@@ -28,6 +30,7 @@ public class Main {
             throw new RuntimeException(e);
         }
 
+        //tengo que conseguir que esto salga al final no al inicio
         System.out.println("Programa terminado.");
 
 
