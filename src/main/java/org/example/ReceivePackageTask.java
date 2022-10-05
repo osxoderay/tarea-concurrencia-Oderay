@@ -16,6 +16,8 @@ public class ReceivePackageTask implements Runnable{
         this.packageNumList = packageNumList;
     }
 
+
+    //tengo que añadir el sleep
     @Override
     public void run() {
 
@@ -26,6 +28,7 @@ public class ReceivePackageTask implements Runnable{
                 System.out.println("Paquete " + i + " recibido");
                 packageNumList.remove(0);
                 sendPackageSemaphore.release();
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 throw new RuntimeException(e);
             }
