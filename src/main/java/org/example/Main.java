@@ -22,15 +22,14 @@ public class Main {
             sendPackageThread.start();
             receivePackageThread.start();
 
-             sendPackageThread.sleep(10);
-
-
+            sendPackageThread.join();
+            receivePackageThread.join();
 
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
 
-        //tengo que conseguir que esto salga al final no al inicio
+
         System.out.println("Programa terminado.");
 
 
